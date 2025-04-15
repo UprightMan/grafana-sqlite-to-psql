@@ -37,3 +37,5 @@ You can override these at runtime (defaults shown):
 | `DB_NAME`   | `grafana`  | Target database name                |
 | `DB_USER`   | `grafana`  | PostgreSQL username                 |
 | `DB_PASS`   | `password` | PostgreSQL password                 |
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
