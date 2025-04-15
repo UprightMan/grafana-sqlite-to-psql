@@ -1,8 +1,8 @@
 # grafana-sqlite-to-psql
 A simple tool based on the pgloader image that runs a script to migrate from an sqlite file to a PostgreSQL instance for Grafana
 
-> 📁 Make sure to first point your Grafana instance to the PostgreSQL Instance so it generates the schemas and tables
-> 📁 Make sure the Grafana instance is stopped before running the tool
+⚠️ **Warning:**  Make sure to first point your Grafana instance to the PostgreSQL Instance so it generates the schemas and tables
+⚠️ **Warning:**  Make sure the Grafana instance is stopped before running the tool
 
 ### 🚀 Usage
 
