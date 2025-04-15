@@ -3,6 +3,7 @@ name: Publish to Docker Hub
 on:
   push:
     branches: [ main ]
+    tags: [ 'v*' ]
 
 jobs:
   build-and-push:
@@ -11,6 +12,21 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+
+    - name: Extract Docker metadata
+      id: meta
+      uses: docker/metadata-action@v5
+      with:
+        images: uprightman/grafana-sqlite-to-psql
+        tags: |
+          type=ref,event=branch
+          type=semver,pattern={{version}}
+        labels: |
+          org.opencontainers.image.title=grafana-sqlite-to-psql
+          org.opencontainers.image.description=Migrate Grafana from SQLite to PostgreSQL using pgloader.
+          org.opencontainers.image.url=https://github.com/uprightman/grafana-sqlite-to-psql
+        flavor: latest=true
+        readme-file: ./README.md
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
@@ -26,4 +42,5 @@ jobs:
       with:
         context: .
         push: true
-        tags: uprightman/grafana-sqlite-to-psql:latest
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
