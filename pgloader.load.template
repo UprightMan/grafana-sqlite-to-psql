@@ -1,0 +1,5 @@
+LOAD DATABASE
+  FROM sqlite:///data/grafana.db
+  INTO postgresql://${DB_USER}:${DB_PASS}@${DB_HOST}/${DB_NAME}
+  WITH data only, reset sequences
+  SET work_mem TO '16MB', maintenance_work_mem TO '512 MB';
