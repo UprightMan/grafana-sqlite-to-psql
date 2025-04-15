@@ -1,5 +1,5 @@
 # grafana-sqlite-to-psql
-A simple tool based on the pgloader image that runs a script to migrate from an sqlite file to a PostgreSQL instance for Grafana
+A simple tool built on top of [`dimitri/pgloader`](https://hub.docker.com/r/dimitri/pgloader) that runs a script to migrate from an sqlite file to a PostgreSQL instance for Grafana
 
 > ⚠️ **Warning:**  Make sure to first point your Grafana instance to the PostgreSQL Instance so it generates the schemas and tables
 
@@ -37,5 +37,9 @@ You can override these at runtime (defaults shown):
 | `DB_NAME`   | `grafana`  | Target database name                |
 | `DB_USER`   | `grafana`  | PostgreSQL username                 |
 | `DB_PASS`   | `password` | PostgreSQL password                 |
+
+## Credits
+
+This project uses the official [`dimitri/pgloader`](https://hub.docker.com/r/dimitri/pgloader) Docker image, created by [Dimitri Fontaine](https://github.com/dimitri), the original author of pgloader.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
